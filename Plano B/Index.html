@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Boxino</title>
+  </head>
+  <body>
+    <div class="screen up">
+      <h1>Boxino</h1>
+      <button class="btn" id="start">Começar Jogo</button>
+    </div>
+    <div class="screen up">
+      <h1>Escolha o Tempo</h1>
+      <ul class="list" id="time-list">
+        <li>
+          <button class="btn time-btn" data-time="10">10 sec</button>
+        </li>
+        <li>
+          <button class="btn time-btn" data-time="20">20 sec</button>
+        </li>
+        <li>
+          <button class="btn time-btn" data-time="30">30 sec</button>
+        </li>
+        <li>
+          <button class="btn time-btn" data-unlimited="true">Sandbox</button>
+        </li>
+      </ul>
+    </div>
+    <div class="screen up">
+      <h1>Escolha a Dificuldade</h1>
+      <ul class="list" id="difficulty-list">
+        <li>
+          <button class="btn difficulty-btn" data-difficulty="0">Fácil</button>
+        </li>
+        <li>
+          <button class="btn difficulty-btn" data-difficulty="1">Médio</button>
+        </li>
+        <li>
+          <button class="btn difficulty-btn" data-difficulty="2">
+            Difícil
+          </button>
+        </li>
+      </ul>
+    </div>
+    <div class="screen">
+      <div class="stats">
+        <div class="info">
+          <p>Tempo: <span id="time">00:00</span></p>
+          <p>Acertos: <span id="hits">0</span></p>
+          <p>Precisão: <span id="accuracy">100%</span></p>
+        </div>
+        <div class="lives">
+          <img src="heart.png" alt="Corações" class="heart" />
+          <img src="heart.png" alt="Corações" class="heart" />
+          <img src="heart.png" alt="Corações" class="heart" />
+        </div>
+      </div>
+      <div class="board" id="board">
+        <div class="circle"></div>
+      </div>
+      <div class="options">
+        <button class="btn restart">Recomeçar</button>
+        <button class="btn" id="fullscreen">Tela Cheia</button>
+        <button class="btn" id="minimize">Minimizar</button>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
