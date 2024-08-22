@@ -8,11 +8,11 @@
     <title>Boxino</title>
   </head>
   <body>
-    <div class="screen up">
+    <div class="screen">
       <h1>Boxino</h1>
       <button class="btn" id="start">Começar Jogo</button>
     </div>
-    <div class="screen up">
+    <div class="screen">
       <h1>Escolha o Tempo</h1>
       <ul class="list" id="time-list">
         <li>
@@ -29,7 +29,7 @@
         </li>
       </ul>
     </div>
-    <div class="screen up">
+    <div class="screen">
       <h1>Escolha a Dificuldade</h1>
       <ul class="list" id="difficulty-list">
         <li>
@@ -59,13 +59,21 @@
         </div>
       </div>
       <div class="board" id="board">
-        <div class="circle"></div>
+        <!-- <div class="circle"></div> -->
       </div>
       <div class="options">
         <button class="btn restart">Recomeçar</button>
         <button class="btn" id="fullscreen">Tela Cheia</button>
         <button class="btn" id="minimize">Minimizar</button>
       </div>
+    </div>
+    <div class="screen">
+      <h1>Fim de Jogo</h1>
+      <div class="results">
+        <p>Acertos: <span id="hits-over">0</span></p>
+        <p>Precisão: <span id="accuracy-over">0%</span></p>
+      </div>
+      <button class="btn restart">Recomeçar</button>
     </div>
 
     <script src="script.js"></script>

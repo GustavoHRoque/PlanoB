@@ -128,3 +128,42 @@ h1 {
         transform: scale(0);
     }
 }
+
+.results{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 30px;
+  margin-bottom: 20px;
+}
+.results p {
+  font-size: 2rem;
+}
+.results p span{
+  color: var(--primary-color);
+  margin-left: 10px;
+}
+/* CAPACIDADE DE RESPOSTA */
+
+@media (max-width: 768px) {
+  h1{
+    font-size: 2rem;
+  }
+  .btn{
+    font-size: 1rem;
+  }
+  .stats{
+    gap: 20px;
+    flex-direction: column;
+  }
+  .stats div{
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+  }
+  .lives{
+    margin-bottom: 10px;
+  }
+}
