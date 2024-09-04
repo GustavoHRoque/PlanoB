@@ -8,7 +8,7 @@ const startBtn = document.querySelector("#start"),
   accuracyEl = document.querySelector("#accuracy"),
   hitsOver = document.querySelector("#hits-over"),
   accuracyOver = document.querySelector("#accuracy-over"),
-  hearts = document.querySelector(".heart"),
+  hearts = document.querySelectorAll(".heart"),
   restartBtns = document.querySelectorAll(".restart"),
   fullScreenBtn = document.querySelector("#fullscreen"),
   minimizeBtn = document.querySelector("#minimize");
@@ -76,51 +76,51 @@ function setTime(time) {
   timeEl.innerHTML = time;
 }
 
-// function createRandomCircle() {
-//   if (!playing) {
-//     //Se estiver jogando a função "false" não faz nada
-//     return;
-//   }
+function createRandomCircle() {
+  if (!playing) {
+    //Se estiver jogando a função "false" não faz nada
+    return;
+  }
 
-//   const circle = document.createElement("div");
-//   const size = getRandomNumber(30, 100);
-//   const colors = ["#03DAC6", "#FF0266", "#b3ff00", "#ccff00", "#9D00FF"];
-//   const { width, height } = board.getBoundingClientRect();
-//   const x = getRandomNumber(0, width - size);
-//   const y = getRandomNumber(0, height - size);
-//   circle.classList.add("circle");
-//   circle.style.width = `${size}px`;
-//   circle.style.height = `${size}px`;
-//   circle.style.top = `${y}px`;
-//   circle.style.left = `${x}px`;
+  const circle = document.createElement("div");
+  const size = getRandomNumber(30, 200);
+  const colors = ["#03DAC6", "#FF0266", "#b3ff00", "#ccff00", "#9D00FF"];
+  const { width, height } = board.getBoundingClientRect();
+  const x = getRandomNumber(0, width - size);
+  const y = getRandomNumber(0, height - size);
+  circle.classList.add("circle");
+  circle.style.width = `${size}px`;
+  circle.style.height = `${size}px`;
+  circle.style.top = `${y}px`;
+  circle.style.left = `${x}px`;
+  let color = Math.floor(Math.random() * 5);
+  circle.style.background = `${colors[color]}`;
 
-//   let color = Math.floor(Math.random() * 5);
-//   circle.style.background = `${colors[color]}`;
-//   board.append(circle);
+  board.append(circle);
 
-//   //Configurações de dificuldade!
+  //Configurações de dificuldade!
 
-//   if (difficulty === 1) {
-//     circle.style.animationDuration = "2s";
-//   } else if (difficulty === 2) {
-//     circle.style.animationDuration = "1s";
-//   } else {
-//     circle.style.animationDuration = "3s";
-//   }
+  if (difficulty === "2") {
+    circle.style.animationDuration = "1s";
+  } else if (difficulty === "1") {
+    circle.style.animationDuration = "2s";
+  } else {
+    circle.style.animationDuration = "3s";
+  }
 
-//   //Criar um circulo novo quando o atual desaparecer
+  //Criar um circulo novo quando o atual desaparecer
 
-//   circle.addEventListener("animationend", () => {
-//     circle.remove();
-//     createRandomCircle();
+  circle.addEventListener("animationend", () => {
+    circle.remove();
+    createRandomCircle();
 
-//     //se o circulo sumir é um erro
+    //se o circulo sumir é um erro
 
-//     addMissed();
-//calcula a precisão apos um erro
-//  calculateAccuracy();
-//   });
-// }
+    addMissed();
+    // calcula a precisão apos um erro
+    calculateAccuracy();
+  });
+}
 
 //acionar um evento quando clicar no circulo
 
@@ -159,7 +159,6 @@ function finishGame() {
 }
 
 function addMissed() {
-  //se um circulo sumir perde vida e precisão
   if (
     hearts[0].classList.contains("dead") &&
     hearts[1].classList.contains("dead") &&
@@ -168,12 +167,11 @@ function addMissed() {
     //se não tiver corações
     finishGame();
   } else {
-    //se tiver corações
+    // se tiver corações adiciona erro
+    // e perde um coração
     missed++;
 
-    //e perde um coração
-
-    for (let i = 0; i < hearts.length; i++) {
+    for (let i = 0; i <hearts.length; i++) {
       if (!hearts[i].classList.contains("dead")) {
         hearts[i].classList.add("dead");
         break;
@@ -190,7 +188,7 @@ function calculateAccuracy() {
 
 function getRandomNumber(min, max) {
   //pega um aleatorio entre o minimo e o máximo
-  return Math.random(Math.floor() * (max - min) + min);
+  return Math.floor(Math.random() * (max - min) + min);
 }
 
 restartBtns.forEach((btn) => {
